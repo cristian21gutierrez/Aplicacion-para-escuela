@@ -1,0 +1,145 @@
+/* Estilos para el contenedor principal */
+.home-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Estilos para el encabezado */
+  .home-header {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el formulario de búsqueda */
+  .search-form {
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para la lista de materias */
+  .materias-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .materia-item {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .materia-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .materia-name {
+    font-weight: bold;
+  }
+  
+  .materia-date {
+    margin-top: 5px;
+    font-style: italic;
+  }
+  
+  .materia-status {
+    margin-top: 10px;
+  }
+  
+  /* Estilos para mensajes de error */
+  .error-message {
+    color: red;
+  }
+  
+  /* Estilos para el contenedor principal */
+.home-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Estilos para el encabezado */
+  .home-header {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el formulario de búsqueda */
+  .search-form {
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    width: calc(100% - 90px); /* Se ajusta al tamaño del botón de búsqueda */
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .search-button {
+    width: 80px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para la lista de materias */
+  .materias-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .materia-item {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .materia-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .materia-name {
+    font-weight: bold;
+  }
+  
+  .materia-date {
+    margin-top: 5px;
+    font-style: italic;
+  }
+  
+  .materia-status {
+    margin-top: 10px;
+  }
+  
+  /* Estilos para mensajes de error */
+  .error-message {
+    color: red;
+  }
+  

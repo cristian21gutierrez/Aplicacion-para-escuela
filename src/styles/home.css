@@ -1,26 +1,26 @@
-/* Estilos para el contenedor principal */
 .home-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
   }
   
-  /* Estilos para el encabezado */
   .home-header {
     text-align: center;
-    font-size: 24px;
     margin-bottom: 20px;
   }
   
-  /* Estilos para el formulario de búsqueda */
   .search-form {
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
   }
   
   .search-input {
-    width: 100%;
+    flex: 1;
     padding: 10px;
     font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
   }
   
   .search-button {
@@ -29,14 +29,14 @@
     background-color: #007bff;
     color: #fff;
     border: none;
+    border-radius: 0 5px 5px 0;
     cursor: pointer;
   }
   
-  .search-button:hover {
-    background-color: #0056b3;
+  .error-message {
+    color: red;
   }
   
-  /* Estilos para la lista de materias */
   .materias-list {
     list-style-type: none;
     padding: 0;
@@ -44,12 +44,9 @@
   
   .materia-item {
     margin-bottom: 20px;
-    border: 1px solid #ccc;
     padding: 10px;
-  }
-  
-  .materia-item:hover {
-    background-color: #f5f5f5;
+    background-color: #151313;
+    border-radius: 5px;
   }
   
   .materia-name {
@@ -57,89 +54,29 @@
   }
   
   .materia-date {
-    margin-top: 5px;
     font-style: italic;
+    color: #777;
   }
   
   .materia-status {
-    margin-top: 10px;
+    color: green;
+    font-weight: bold;
   }
   
-  /* Estilos para mensajes de error */
-  .error-message {
-    color: red;
+  .button-container {
+    text-align: right;
   }
   
-  /* Estilos para el contenedor principal */
-.home-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Estilos para el encabezado */
-  .home-header {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilos para el formulario de búsqueda */
-  .search-form {
-    margin-bottom: 20px;
-  }
-  
-  .search-input {
-    width: calc(100% - 90px); /* Se ajusta al tamaño del botón de búsqueda */
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  .search-button {
-    width: 80px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
+  .button-container button {
+    background-color: #dc3545;
     color: #fff;
     border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
   }
   
-  .search-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Estilos para la lista de materias */
-  .materias-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .materia-item {
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-  
-  .materia-item:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .materia-name {
-    font-weight: bold;
-  }
-  
-  .materia-date {
-    margin-top: 5px;
-    font-style: italic;
-  }
-  
-  .materia-status {
-    margin-top: 10px;
-  }
-  
-  /* Estilos para mensajes de error */
-  .error-message {
-    color: red;
+  .button-container button:hover {
+    background-color: #c82333;
   }
   

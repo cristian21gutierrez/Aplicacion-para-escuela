@@ -1,0 +1,33 @@
+
+.app-container {
+    text-align: center;
+    background-color: #5a5656; 
+  }
+  
+  .app-title {
+    color: #007bff; /* Nuevo color para el título */
+  }
+  
+  .login-container {
+    margin-bottom: 20px;
+    display: block;
+
+  }
+  .login-container input {
+    margin-bottom: 20px;
+    display: block;
+
+  }
+  
+  .user-container {
+    margin-top: 20px;
+  }
+  
+  .success-message {
+    color: green; /* Nuevo color para mensajes de éxito */
+  }
+  
+  .error-message {
+    color: red; /* Nuevo color para mensajes de error */
+  }
+  

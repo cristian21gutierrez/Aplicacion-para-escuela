@@ -5,6 +5,8 @@ import axios from 'axios';
 import Home from './components/Home';
 import AdminPanel from './components/AdminPanel';
 
+import './App.css';
+
 function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -17,6 +19,7 @@ function App() {
     if (token) {
       const decodeToken = JSON.parse(atob(token.split('.')[1]));
       setIsAdmin(decodeToken.isAdmin);
+      setUsername(decodeToken.username);
     }
   }, [token]);
 
@@ -26,8 +29,8 @@ function App() {
       const { token, isAdmin } = response.data;
       setToken(token);
       localStorage.setItem('token', token);
-      setIsAdmin(isAdmin); // Almacenar el rol del usuario en el estado
-      setUsername('');
+      setIsAdmin(isAdmin);
+      setUsername(username);
       setPassword('');
       setLoginError('');
     } catch (error) {
@@ -49,33 +52,34 @@ function App() {
   const handleLogout = () => {
     setToken('');
     localStorage.removeItem('token');
+    setUsername('');
   };
 
   return (
     <Router>
-      <div>
-        <h1>Aplicación de Login</h1>
+      <div className="app-container">
+        <h1 className="app-title">Aplicación de Login</h1>
         {!token && (
-          <>
+          <div className="login-container">
             <input type="text" placeholder="Usuario" value={username} onChange={e => setUsername(e.target.value)} />
             <input type="password" placeholder="Contraseña" value={password} onChange={e => setPassword(e.target.value)} />
             <button onClick={handleLogin}>Iniciar sesión</button>
             <button onClick={handleRegistration}>Registrarse</button>
-            {registrationMessage && <p>{registrationMessage}</p>}
-            {loginError && <p>{loginError}</p>}
-          </>
+            {registrationMessage && <p className="success-message">{registrationMessage}</p>}
+            {loginError && <p className="error-message">{loginError}</p>}
+          </div>
         )}
         {token && (
-          <>
+          <div className="user-container">
             <p>¡Hola, {username}!</p>
             <button onClick={handleLogout}>Cerrar sesión</button>
             {isAdmin && <Link to="/admin"><button>Ir al Panel de Administración</button></Link>}
-          </>
+          </div>
         )}
         <Routes>
           {token ? (
             <>
-              <Route path="/" element={<Home isAdmin={isAdmin} />} />
+              <Route path="/" element={<Home isAdmin={isAdmin} username={username} />} />
               {isAdmin && <Route path="/admin" element={<AdminPanel />} />}
               <Route path="/*" element={<Navigate to="/" />} />
             </>

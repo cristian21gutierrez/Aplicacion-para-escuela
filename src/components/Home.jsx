@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../styles/home.css'; // Importar el archivo CSS
 
-function Home({ isAdmin }) {
+import '../styles/home.css';
+
+function Home({ isAdmin, username }) {
   const [materias, setMaterias] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState(null);
-  const [currentUser, setCurrentUser] = useState(null);
   const [inscripcionExitosa, setInscripcionExitosa] = useState(null);
   const [searchPerformed, setSearchPerformed] = useState(false);
+  const [notas, setNotas] = useState([]);
 
   useEffect(() => {
-    setCurrentUser('flor'); // Reemplazar con el nombre de usuario real del usuario actual
-  }, []);
+    async function fetchNotas() {
+      try {
+        const response = await axios.get(`http://localhost:5000/mis-notas?username=${username}`);
+        setNotas(response.data);
+      } catch (error) {
+        console.error('Error al obtener las calificaciones:', error);
+        setError('Error al obtener las calificaciones. Por favor, intenta de nuevo más tarde.');
+      }
+    }
+
+    fetchNotas();
+  }, [username]);
 
   const buscarMaterias = async () => {
     try {
@@ -35,11 +46,10 @@ function Home({ isAdmin }) {
       setError(null);
       setLoading(true);
       const response = await axios.post('http://localhost:5000/inscribir-materia', {
-        username: currentUser,
+        username,
         materia: materiaNombre
       });
       console.log(response.data);
-      // Después de una inscripción exitosa, volvemos a buscar las materias para obtener la lista actualizada
       await buscarMaterias();
       setInscripcionExitosa(materiaNombre);
     } catch (error) {
@@ -53,7 +63,7 @@ function Home({ isAdmin }) {
 
   return (
     <div className="home-container">
-      <h2 className="home-header">Bienvenido al Home</h2>
+      <h2 className="home-header">Bienvenido</h2>
       <div className="search-form">
         <input
           type="text"
@@ -92,6 +102,14 @@ function Home({ isAdmin }) {
           </ul>
         </div>
       )}
+      <h3>Calificaciones:</h3>
+      <ul>
+        {notas.map(nota => (
+          <li key={nota.materia}>
+            <strong>Materia:</strong> {nota.materia}, <strong>Nota:</strong> {nota.nota}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

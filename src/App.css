@@ -1,3 +1,6 @@
+body {
+  background-color: #575353; /* Color de fondo para todo el cuerpo de la página */
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
